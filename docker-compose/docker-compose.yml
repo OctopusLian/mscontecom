@@ -1,0 +1,42 @@
+#声明版本
+version: "3"
+#定义服务
+services:
+  #服务名称，能够在同一个网络内按照名称访问
+  consul:
+    #说明采用的镜像地址
+    image: consul
+    #镜像对外映射的端口
+    ports:
+      - "8500:8500"
+  #服务名称，能够在同一个网络内按照名称访问
+  jaeger:
+    #说明采用的镜像地址
+    image: jaeger
+    #镜像对外映射的端口
+    ports:
+      - "6831:6831/udp"
+      - "16686:16686"
+  #熔断看板
+  hystrix-dashboard:
+    #说明采用的镜像地址
+    image: hystrix-dashboard
+    #镜像对外映射的端口
+    ports:
+      - "9002:9002"
+  #熔断看板
+  prometheus:
+    #说明采用的镜像地址
+    image: prometheus
+    #把外部yml文件挂载到容器中
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+  #熔断看板
+  grafana:
+    #说明采用的镜像地址
+    image: grafana
+    #镜像对外映射的端口
+    ports:
+      - "3000:3000"

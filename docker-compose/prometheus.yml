@@ -1,0 +1,10 @@
+global:
+  scrape_interval:     15s # 默认每15秒采集一次
+  external_labels:
+    monitor: 'go-micro-monitor'
+scrape_configs:
+  #监控的服务
+  - job_name: 'order'  #名称
+    scrape_interval: 5s   #覆盖默认值，设置5秒一次
+    static_configs:
+      - targets: ['192.168.3.9:9092']  #设置监控地址
