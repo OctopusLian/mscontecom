@@ -1,0 +1,43 @@
+syntax = "proto3";  //模板
+
+package go.micro.service.user;
+
+service User {  //要暴露出去的三个user服务
+    //注册
+    rpc Register(UserRegisterRequest) returns (UserRegisterResponse) {}
+    //登录
+    rpc Login(UserLoginRequest) returns (UserLoginResponse) {}
+    //查询用户信息
+    rpc GetUserInfo(UserInfoRequest) returns (UserInfoResponse) {}
+}
+
+message UserInfoRequest {
+    string user_name = 1;
+}
+
+message UserInfoResponse {
+    int64 user_id = 1;
+    string user_name = 2;  //账号
+    string first_name = 3;  //用户昵称
+}
+
+message UserRegisterRequest {
+    string user_name = 1;
+    string first_name = 2;
+    string pwd = 3;  //注册时的密码
+    //... 其它信息
+}
+
+message UserRegisterResponse {
+    string message = 1;
+}
+
+message UserLoginRequest {
+    string user_name = 1;
+    string pwd = 2;
+}
+
+message UserLoginResponse {
+    bool is_success = 1;
+}
+
