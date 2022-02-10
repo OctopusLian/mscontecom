@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+  elasticsearch:
+    image: cap1573/elasticsearch:7.9.3
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_PASSWORD: imoocpwd
+      discovery.type: single-node
+      network.publish_host: _eth0_
+  logstash:
+    image: cap1573/logstash:7.9.3
+    ports:
+      - "5044:5044"
+      - "5000:5000"
+      - "9600:9600"
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+  kibana:
+    image: cap1573/kibana:7.9.3
+    ports:
+      - "5601:5601"
+    volumes:
+      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
