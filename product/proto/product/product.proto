@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package go.micro.service.product;
+
+service Product {
+	rpc AddProduct(ProductInfo) returns (ResponseProduct){}
+	rpc FindProductByID(RequestID) returns (ProductInfo){}
+	rpc UpdateProduct(ProductInfo) returns (Response) {}
+	rpc DeleteProductByID(RequestID) returns (Response) {}
+	rpc FindAllProduct(RequestAll) returns (AllProduct){}
+}
+
+message ProductInfo {
+	int64 id = 1;
+	string product_name = 2;
+	string product_sku = 3;
+	double product_price = 4;
+	string product_description = 5;
+	int64  product_category_id = 6;
+	repeated ProductImage product_image = 7;
+	repeated ProductSize product_size = 8;
+	ProductSeo product_seo = 9;
+
+}
+
+message ProductImage {
+	int64 id = 1;
+	string image_name = 2;
+	string image_code = 3;
+	string image_url = 4;
+}
+
+message ProductSize{
+	int64 id = 1;
+	string size_name = 2;
+	string size_code = 3;
+}
+
+message ProductSeo {
+	int64 id = 1;
+	string seo_title = 2;
+	string seo_keywords = 3;
+	string seo_description =4;
+	string seo_code = 6;
+}
+
+message ResponseProduct {
+	int64 product_id = 1;
+}
+
+message RequestID {
+	int64 product_id = 1;
+}
+
+message Response {
+	string msg = 1;
+}
+
+message RequestAll{
+
+}
+
+message AllProduct{
+	repeated ProductInfo product_info =1;
+}
+
