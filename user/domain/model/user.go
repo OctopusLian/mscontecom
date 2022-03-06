@@ -3,7 +3,7 @@
  * @Author: neozhang
  * @Date: 2022-02-09 22:11:51
  * @LastEditors: neozhang
- * @LastEditTime: 2022-02-09 22:11:52
+ * @LastEditTime: 2022-03-06 11:15:43
  */
 package model
 
@@ -14,7 +14,6 @@ type User struct {
 	UserName string `gorm:"unique_index;not_null"`
 	//添加需要的字段
 	FirstName string
-	//...
 	//密码
 	HashPassword string
 }

@@ -3,7 +3,7 @@
  * @Author: neozhang
  * @Date: 2022-02-10 13:24:07
  * @LastEditors: neozhang
- * @LastEditTime: 2022-02-10 13:28:17
+ * @LastEditTime: 2022-03-03 22:40:41
  */
 package handler
 
@@ -13,7 +13,7 @@ import (
 	"order/domain/service"
 	. "order/proto/order"
 
-	"common" //TODO:解决
+	"order/common"
 )
 
 type Order struct {

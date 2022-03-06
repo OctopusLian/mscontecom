@@ -3,12 +3,12 @@
  * @Author: neozhang
  * @Date: 2022-02-10 13:24:07
  * @LastEditors: neozhang
- * @LastEditTime: 2022-02-10 13:29:52
+ * @LastEditTime: 2022-03-03 22:40:04
  */
 package main
 
 import (
-	"common"
+	"order/common"
 	"order/domain/repository"
 	service2 "order/domain/service"
 	"order/handler"

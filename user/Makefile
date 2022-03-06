@@ -1,4 +1,3 @@
-
 GOPATH:=$(shell go env GOPATH)
 .PHONY: proto
 proto:

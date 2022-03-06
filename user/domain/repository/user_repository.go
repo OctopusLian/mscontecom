@@ -3,7 +3,7 @@
  * @Author: neozhang
  * @Date: 2022-02-09 22:12:30
  * @LastEditors: neozhang
- * @LastEditTime: 2022-02-09 22:12:51
+ * @LastEditTime: 2022-03-06 11:18:47
  */
 package repository
 
@@ -26,7 +26,7 @@ type IUserRepository interface {
 	DeleteUserByID(int64) error
 	//更新用户信息
 	UpdateUser(*model.User) error
-	//查找所有用
+	//查找所有用户
 	FindAll() ([]model.User, error)
 }
 
@@ -71,7 +71,7 @@ func (u *UserRepository) UpdateUser(user *model.User) error {
 	return u.mysqlDb.Model(user).Update(&user).Error
 }
 
-//查找所有用
+//查找所有用户
 func (u *UserRepository) FindAll() (userAll []model.User, err error) {
 	return userAll, u.mysqlDb.Find(&userAll).Error
 }
