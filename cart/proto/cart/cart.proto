@@ -3,15 +3,15 @@ syntax = "proto3";
 package go.micro.service.cart;
 
 service Cart {
-	rpc AddCart(CartInfo) returns (ResponseAdd) {}
-	rpc CleanCart(Clean) returns (Response){}
+	rpc AddCart(CartInfo) returns (ResponseAdd) {}  //购物车添加商品
+	rpc CleanCart(Clean) returns (Response){}  //清空购物车
 	rpc Incr(Item) returns (Response){}
 	rpc Decr(Item) returns (Response){}
 	rpc DeleteItemByID (CartID) returns (Response){}
 	rpc GetAll(CartFindAll) returns (CartAll){}
 }
 
-message CartInfo {
+message CartInfo {  //购物车
 	int64 id = 1;
 	int64 user_id =2;
 	int64 product_id = 3;
@@ -48,5 +48,3 @@ message CartFindAll {
 message CartAll {
 	repeated CartInfo cart_info =1;
 }
-
-

@@ -1,3 +1,3 @@
 FROM alpine
-ADD product-service /product-service
+ADD product /product
 ENTRYPOINT [ "/product-service" ]

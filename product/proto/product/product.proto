@@ -13,11 +13,11 @@ service Product {
 message ProductInfo {
 	int64 id = 1;
 	string product_name = 2;
-	string product_sku = 3;
+	string product_sku = 3; //商品编码
 	double product_price = 4;
 	string product_description = 5;
 	int64  product_category_id = 6;
-	repeated ProductImage product_image = 7;
+	repeated ProductImage product_image = 7;  //商品图片
 	repeated ProductSize product_size = 8;
 	ProductSeo product_seo = 9;
 
@@ -25,9 +25,9 @@ message ProductInfo {
 
 message ProductImage {
 	int64 id = 1;
-	string image_name = 2;
+	string image_name = 2;  //名称
 	string image_code = 3;
-	string image_url = 4;
+	string image_url = 4;  //图片的链接
 }
 
 message ProductSize{

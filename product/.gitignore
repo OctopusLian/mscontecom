@@ -1,3 +1,6 @@
 
 .idea/
-product-service
+product
+.vscode/
+main
+productClient

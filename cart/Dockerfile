@@ -1,3 +1,3 @@
 FROM alpine
-ADD cart-service /cart-service
+ADD cart /cart
 ENTRYPOINT [ "/cart-service" ]
